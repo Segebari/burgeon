@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  color: #000050;
+}
+
+.border-left-custom::before {
+  content: "";
+  display: block;
+  width: 1.5px; /* Adjust for border width */
+  height: 170px; /* Adjust for desired height */
+  background-color: #0fa9e2; /* Set your border color */
+  position: absolute;
+  left: 0;
+  top: 10%;
+}
+
+.animate-slide-left {
+  overflow: hidden; /* This is important for the animation */
+  position: relative; /* Needed for positioning the pseudo-element */
+}
+
+.animate-slide-left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Starts the element completely off-screen to the left */
+  width: 100%;
+  height: 100%;
+  background-color: #0fa9e2; /* Use your Tailwind secondary color variable */
+  transition: all 0.3s ease-in-out; /* Animation properties */
+  z-index: -1;
+}
+
+.animate-slide-left:hover::after {
+  left: 0; /* Animates the element to fill the button on hover */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
